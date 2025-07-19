@@ -1,0 +1,186 @@
+/* React Flow Styles for RabbitMQ Topology */
+@import '@xyflow/react/dist/style.css';
+
+/* Custom Node Styles */
+.react-flow__node {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-node);
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.react-flow__node:hover {
+  box-shadow: var(--shadow-elevated);
+}
+
+.react-flow__node.selected {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.2), var(--shadow-elevated);
+}
+
+/* Producer Node */
+.react-flow__node-producer {
+  background: hsl(var(--producer));
+  color: hsl(var(--producer-foreground));
+  min-width: 120px;
+  padding: 12px;
+}
+
+/* Exchange Nodes */
+.react-flow__node-exchange-direct {
+  background: hsl(var(--exchange-direct));
+  color: hsl(var(--exchange-direct-foreground));
+  min-width: 140px;
+  padding: 12px;
+}
+
+.react-flow__node-exchange-fanout {
+  background: hsl(var(--exchange-fanout));
+  color: hsl(var(--exchange-fanout-foreground));
+  min-width: 140px;
+  padding: 12px;
+}
+
+.react-flow__node-exchange-topic {
+  background: hsl(var(--exchange-topic));
+  color: hsl(var(--exchange-topic-foreground));
+  min-width: 140px;
+  padding: 12px;
+}
+
+.react-flow__node-exchange-headers {
+  background: hsl(var(--exchange-headers));
+  color: hsl(var(--exchange-headers-foreground));
+  min-width: 140px;
+  padding: 12px;
+}
+
+/* Queue Node */
+.react-flow__node-queue {
+  background: hsl(var(--queue));
+  color: hsl(var(--queue-foreground));
+  min-width: 130px;
+  padding: 12px;
+}
+
+/* Consumer Node */
+.react-flow__node-consumer {
+  background: hsl(var(--consumer));
+  color: hsl(var(--consumer-foreground));
+  min-width: 120px;
+  padding: 12px;
+}
+
+/* Custom Handles */
+.custom-handle {
+  width: 10px;
+  height: 10px;
+  border: 2px solid hsl(var(--background));
+  background: hsl(var(--connection));
+  border-radius: 50%;
+}
+
+.custom-handle:hover {
+  background: hsl(var(--connection-active));
+  transform: scale(1.2);
+}
+
+.custom-handle.source {
+  background: hsl(var(--connection-active));
+}
+
+.custom-handle.target {
+  background: hsl(var(--primary));
+}
+
+/* Custom Edges */
+.react-flow__edge-path {
+  stroke: hsl(var(--connection));
+  stroke-width: 2;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: hsl(var(--primary));
+  stroke-width: 3;
+}
+
+.react-flow__edge-text {
+  font-size: 11px;
+  fill: hsl(var(--muted-foreground));
+}
+
+/* Controls */
+.react-flow__controls {
+  box-shadow: var(--shadow-panel);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  background: hsl(var(--card));
+}
+
+.react-flow__controls-button {
+  background: hsl(var(--card));
+  border-color: hsl(var(--border));
+  color: hsl(var(--foreground));
+}
+
+.react-flow__controls-button:hover {
+  background: hsl(var(--muted));
+}
+
+/* Minimap */
+.react-flow__minimap {
+  box-shadow: var(--shadow-panel);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  background: hsl(var(--card));
+}
+
+/* Node Status Indicators */
+.node-status {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+}
+
+.node-status.active {
+  background: hsl(var(--status-active));
+}
+
+.node-status.warning {
+  background: hsl(var(--status-warning));
+}
+
+.node-status.error {
+  background: hsl(var(--status-error));
+}
+
+.node-status.idle {
+  background: hsl(var(--status-idle));
+}
+
+/* Node Metrics */
+.node-metrics {
+  font-size: 10px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* Background */
+.react-flow__background {
+  background-color: hsl(var(--background));
+}
+
+/* Pane */
+.react-flow__pane {
+  cursor: grab;
+}
+
+.react-flow__pane:active {
+  cursor: grabbing;
+}

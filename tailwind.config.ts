@@ -61,6 +61,48 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// RabbitMQ Component Colors
+				producer: {
+					DEFAULT: 'hsl(var(--producer))',
+					foreground: 'hsl(var(--producer-foreground))'
+				},
+				exchange: {
+					direct: {
+						DEFAULT: 'hsl(var(--exchange-direct))',
+						foreground: 'hsl(var(--exchange-direct-foreground))'
+					},
+					fanout: {
+						DEFAULT: 'hsl(var(--exchange-fanout))',
+						foreground: 'hsl(var(--exchange-fanout-foreground))'
+					},
+					topic: {
+						DEFAULT: 'hsl(var(--exchange-topic))',
+						foreground: 'hsl(var(--exchange-topic-foreground))'
+					},
+					headers: {
+						DEFAULT: 'hsl(var(--exchange-headers))',
+						foreground: 'hsl(var(--exchange-headers-foreground))'
+					}
+				},
+				queue: {
+					DEFAULT: 'hsl(var(--queue))',
+					foreground: 'hsl(var(--queue-foreground))'
+				},
+				consumer: {
+					DEFAULT: 'hsl(var(--consumer))',
+					foreground: 'hsl(var(--consumer-foreground))'
+				},
+				connection: {
+					DEFAULT: 'hsl(var(--connection))',
+					active: 'hsl(var(--connection-active))',
+					error: 'hsl(var(--connection-error))'
+				},
+				status: {
+					active: 'hsl(var(--status-active))',
+					warning: 'hsl(var(--status-warning))',
+					error: 'hsl(var(--status-error))',
+					idle: 'hsl(var(--status-idle))'
 				}
 			},
 			borderRadius: {
