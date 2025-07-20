@@ -1,0 +1,31 @@
+{
+  "name": "rabbitmq-service",
+  "version": "1.0.0",
+  "description": "RabbitMQ service with direct, fanout, and topic exchange examples",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js start",
+    "start:service": "node index.js start",
+    "start:direct": "node exchanges/direct/directProducer.js",
+    "start:fanout": "node exchanges/fanout/fanoutProducer.js",
+    "start:topic": "node exchanges/topic/topicProducer.js",
+    "start:all-producers": "concurrently --kill-others-on-fail --prefix=\"[{name}]\" --names=\"DIRECT,FANOUT,TOPIC\" \"npm run start:direct\" \"npm run start:fanout\" \"npm run start:topic\"",
+    "start:consumers": "concurrently --kill-others-on-fail --prefix=\"[{name}]\" --names=\"DIR-C1,DIR-C2,FAN-C1,FAN-C2,TOP-C1,TOP-C2\" \"node exchanges/direct/directConsumer1.js\" \"node exchanges/direct/directConsumer2.js\" \"node exchanges/fanout/fanoutConsumer1.js\" \"node exchanges/fanout/fanoutConsumer2.js\" \"node exchanges/topic/topicConsumer1.js\" \"node exchanges/topic/topicConsumer2.js\"",
+    "setup": "node run-setup.js",
+    "setup:infra": "node setup.js setup",
+    "cleanup": "node setup.js cleanup",
+    "config": "node test-config.js",
+    "dev": "concurrently --kill-others-on-fail --prefix=\"[{name}]\" --names=\"CONSUMERS,PRODUCERS\" \"npm run start:consumers\" \"npm run start:all-producers\"",
+    "dev:all": "npm run setup && npm run dev",
+    "test": "node test-all.js",
+    "test:single": "node index.js test",
+    "stats": "node index.js stats"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

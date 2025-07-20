@@ -8,7 +8,6 @@
   border-radius: var(--radius);
   box-shadow: var(--shadow-node);
   border: 2px solid transparent;
-  transition: all 0.2s ease;
 }
 
 .react-flow__node:hover {
@@ -24,53 +23,75 @@
 .react-flow__node-producer {
   background: hsl(var(--producer));
   color: hsl(var(--producer-foreground));
-  min-width: 120px;
-  padding: 12px;
+  min-width: 140px;
+  min-height: 60px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Exchange Nodes */
 /* Exchange Nodes */
 .react-flow__node-exchange-direct {
   background: hsl(var(--exchange-direct));
   color: hsl(var(--exchange-direct-foreground));
-  min-width: 140px;
-  padding: 12px;
+  min-width: 160px;
+  min-height: 60px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .react-flow__node-exchange-fanout {
   background: hsl(var(--exchange-fanout));
   color: hsl(var(--exchange-fanout-foreground));
-  min-width: 140px;
-  padding: 12px;
+  min-width: 160px;
+  min-height: 60px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .react-flow__node-exchange-topic {
   background: hsl(var(--exchange-topic));
   color: hsl(var(--exchange-topic-foreground));
-  min-width: 140px;
-  padding: 12px;
+  min-width: 160px;
+  min-height: 60px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .react-flow__node-exchange-headers {
   background: hsl(var(--exchange-headers));
   color: hsl(var(--exchange-headers-foreground));
-  min-width: 140px;
-  padding: 12px;
+  min-width: 160px;
+  min-height: 60px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Queue Node */
 .react-flow__node-queue {
   background: hsl(var(--queue));
   color: hsl(var(--queue-foreground));
-  min-width: 130px;
-  padding: 12px;
+  min-width: 150px;
+  min-height: 60px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Consumer Node */
 .react-flow__node-consumer {
   background: hsl(var(--consumer));
   color: hsl(var(--consumer-foreground));
-  min-width: 120px;
-  padding: 12px;
+  min-width: 140px;
+  min-height: 60px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Custom Handles */
@@ -84,7 +105,6 @@
 
 .custom-handle:hover {
   background: hsl(var(--connection-active));
-  transform: scale(1.2);
 }
 
 .custom-handle.source {
@@ -99,23 +119,60 @@
 .react-flow__edge-path {
   stroke: hsl(var(--connection));
   stroke-width: 2;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
 }
 
 .react-flow__edge.selected .react-flow__edge-path {
   stroke: hsl(var(--primary));
   stroke-width: 3;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .react-flow__edge-text {
   font-size: 11px;
   fill: hsl(var(--muted-foreground));
+  font-weight: 500;
+  text-shadow: 0 0 3px hsl(var(--background));
+}
+
+/* Enhanced Edge Styling for Better Curves */
+.react-flow__edge {
+  pointer-events: all;
+}
+
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: hsl(var(--primary));
+  stroke-width: 3;
+}
+
+/* Smooth Step Edge Enhancements */
+.react-flow__edge-smooth {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Arrow Markers */
+.react-flow__arrowhead {
+  fill: hsl(var(--connection));
+}
+
+.react-flow__edge.selected .react-flow__arrowhead {
+  fill: hsl(var(--primary));
+}
+
+/* Edge Labels with Better Visibility */
+.react-flow__edge-textbg {
+  fill: hsl(var(--background));
+  fill-opacity: 0.9;
+  stroke: hsl(var(--border));
+  stroke-width: 0.5;
+  border-radius: 4px;
 }
 
 /* Controls */
 .react-flow__controls {
   box-shadow: var(--shadow-panel);
   border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
   background: hsl(var(--card));
 }
 
@@ -171,6 +228,86 @@
   margin-top: 4px;
 }
 
+/* Floating Bezier Edge Styles */
+.floating-bezier-edge {
+  stroke: hsl(var(--connection));
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+  transition: all 0.2s ease-in-out;
+}
+
+.floating-bezier-edge:hover {
+  stroke: hsl(var(--primary));
+  stroke-width: 3;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.floating-bezier-edge.selected {
+  stroke: hsl(var(--primary));
+  stroke-width: 3;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+.floating-bezier-edge.animated {
+  stroke-dasharray: 5;
+  animation: dash 1s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+/* Custom Markers for Floating Bezier Edges */
+.floating-bezier-edge marker {
+  overflow: visible;
+}
+
+.floating-bezier-edge marker rect,
+.floating-bezier-edge marker polygon {
+  transition: fill 0.2s ease-in-out;
+}
+
+.react-flow__edge[data-testid*="floating-bezier"] .react-flow__edge-path {
+  stroke: hsl(var(--connection));
+  stroke-width: 2;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.react-flow__edge[data-testid*="floating-bezier"]:hover .react-flow__edge-path {
+  stroke: hsl(var(--primary));
+  stroke-width: 3;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.react-flow__edge[data-testid*="floating-bezier"].selected .react-flow__edge-path {
+  stroke: hsl(var(--primary));
+  stroke-width: 3;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Node Performance Indicators */
+.performance-excellent {
+  border-left: 4px solid #10b981;
+}
+
+.performance-good {
+  border-left: 4px solid #84cc16;
+}
+
+.performance-fair {
+  border-left: 4px solid #f59e0b;
+}
+
+.performance-poor {
+  border-left: 4px solid #ef4444;
+}
+
 /* Background */
 .react-flow__background {
   background-color: hsl(var(--background));
@@ -183,4 +320,62 @@
 
 .react-flow__pane:active {
   cursor: grabbing;
+}
+
+/* Message Flow Animation */
+.message-flow-animation {
+  position: fixed;
+  pointer-events: none;
+  z-index: 50;
+  transition: opacity 200ms ease-in-out;
+  transform: translate(-50%, -50%);
+}
+
+.message-dot {
+  border-radius: 50%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Queue Depth Indicators */
+.queue-depth-bar {
+  width: 2rem;
+  height: 0.5rem;
+  background-color: hsl(var(--muted));
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.queue-depth-fill {
+  height: 100%;
+  transition: width 500ms ease-in-out;
+}
+
+.queue-depth-fill.low {
+  background-color: #10b981;
+}
+
+.queue-depth-fill.medium {
+  background-color: #f59e0b;
+}
+
+.queue-depth-fill.high {
+  background-color: #f97316;
+}
+
+.queue-depth-fill.critical {
+  background-color: #ef4444;
+}
+
+/* Queue Health Bar */
+.queue-health-bar {
+  flex: 1;
+  height: 0.25rem;
+  border-radius: 9999px;
+}
+
+.queue-health-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: all 700ms ease-in-out;
+  width: 75%;
 }

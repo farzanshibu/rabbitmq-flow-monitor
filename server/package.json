@@ -1,0 +1,20 @@
+{
+  "name": "rabbitmq-monitor-backend",
+  "version": "1.0.0",
+  "description": "Backend server for RabbitMQ monitoring with SSE and WebSocket support",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.14.2",
+    "cors": "^2.8.5",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

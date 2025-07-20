@@ -1,8 +1,8 @@
+@import '@xyflow/react/dist/style.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import '@xyflow/react/dist/style.css';
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
@@ -189,5 +189,11 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .progress-bar {
+    transition: width 0.3s ease-in-out;
   }
 }
